@@ -31,5 +31,8 @@ This will create a database in MongoDB called __infodisclosure__. Verify its pre
 Answer the following:
 
 1. Briefly explain the potential vulnerabilities in **insecure.ts** that can lead to a DoS attack.
+    - The code in insecure.ts lacks controls to limit the number of requests from any particular client, which makes it vulnerable to denial-of-service (DoS) attacks. An attacker can send repeated requests to the /userinfo route, overwhelming the server’s resources
 2. Briefly explain how a malicious attacker can exploit them.
+    - A malicious attacker could exploit this vulnerability by rapidly sending multiple requests to /userinfo, targeting the MongoDB database. By overloading the endpoint, the server would be forced to process each request
 3. Briefly explain the defensive techniques used in **secure.ts** to prevent the DoS vulnerability?
+    - In secure.ts, an express-rate-limit middleware has been implemented to limit the number of requests from a single IP address to one request every five seconds. 

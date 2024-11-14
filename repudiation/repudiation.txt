@@ -1,2 +1,8 @@
 - Briefly explain the vulnerability and why the secure version is better at preventing repudiation than the insecure version.
+    The insecure version lacks request logging and authentication, allowing users to deny actions (repudiation). The secure version improves this by logging requests (with timestamps and IPs) and requiring authentication, enabling accountability and limiting unauthorized access.
 - What additional security mechanisms can you incorporate to prevent such attacks?
+    Use token-based authentication (e.g., JWT) for verified access.
+    Encrypt logs to prevent tampering.
+    Require MFA for sensitive actions.
+    Store logs in immutable storage for integrity.
+    Add rate limiting and intrusion detection for suspicious activities
